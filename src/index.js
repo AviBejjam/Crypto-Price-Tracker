@@ -20,7 +20,7 @@ app.use(express.json());
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Connected to MongoDB');
-    
+
     // Start the background job for Task 1 once the connection is established
     start_Task1();
   })
@@ -38,7 +38,7 @@ const start_Task1 = () => {
     } catch (error) {
       console.error('Error in background job:', error);
     }
-    
+
     // Schedule the next run in 2 hours
     setTimeout(run_task1, 2 * 60 * 60 * 1000);
   };
@@ -55,7 +55,12 @@ app.get('/', (req, res) => {
   res.send('Server is running');
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Export the app for Vercel
+module.exports = app;
+
+// Start the server if not running on Vercel
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}

@@ -12,8 +12,8 @@
       "dest": "src/index.js"
     },
     {
-      "src": "/(.*)", 
-      "dest": "/api" 
+      "src": "/", 
+      "dest": "src/index.js"
     }
   ]
 }

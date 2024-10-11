@@ -28,7 +28,7 @@ This project is a **Crypto Price Tracker** that fetches real-time cryptocurrency
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/crypto-price-tracker.git
+   git clone https://github.com/AviBejjam/Crypto-Price-Tracker.git
    cd crypto-price-tracker
    ```
 2. **Install dependencies**:

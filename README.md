@@ -38,14 +38,7 @@ This project is a **Crypto Price Tracker** that fetches real-time cryptocurrency
    ```
 3. **Set up environment variables**:
 
-   Create a `.env` file in the root directory with the following variables:
-
-   ```bash
-   MONGO_URI
-   COINGECKO_API_KEY
-   ```
-
-   Replace the variables with your actual MongoDB credentials and CoinGecko API key (if applicable).
+   Create a `.env` file in the root directory with the variables with your actual MongoDB credentials and CoinGecko API key (if applicable).
 4. **Start the server**:
 
    ```bash

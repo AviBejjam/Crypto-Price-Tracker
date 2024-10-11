@@ -11,7 +11,6 @@ This project is a **Crypto Price Tracker** that fetches real-time cryptocurrency
 ## Technologies Used
 
 - **Node.js** with **Express** for building the API
-- **Mongoose** for interacting with MongoDB
 - **CoinGecko API** for fetching cryptocurrency data
 - **MongoDB Atlas** as the database
 - **Postman** for API testing
@@ -42,39 +41,18 @@ This project is a **Crypto Price Tracker** that fetches real-time cryptocurrency
    Create a `.env` file in the root directory with the following variables:
 
    ```bash
-   MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/myDB?retryWrites=true&w=majority
-   COINGECKO_API_URL=https://api.coingecko.com/api/v3/simple/price
-   COINGECKO_API_KEY=<your_coingecko_api_key>
+   MONGO_URI
+   COINGECKO_API_KEY
    ```
 
-   Replace `<username>`, `<password>`, and `<your_coingecko_api_key>` with your actual MongoDB credentials and CoinGecko API key (if applicable).
+   Replace the variables with your actual MongoDB credentials and CoinGecko API key (if applicable).
 4. **Start the server**:
 
    ```bash
-   node src/task-1.js
+   node src/index.js
    ```
 
-   The server will be running at `http://localhost:3001`.
-
-## Project Structure
-
-```
-crypto-price-tracker/
-│
-├── src/
-│   ├── index.js               # Main entry point
-│   ├── models/
-│   │   └── CryptoData.js      # Mongoose schema for storing cryptocurrency data
-│   ├── services/
-│   │   └── fetchCryptoData.js # Function to fetch cryptocurrency data from CoinGecko
-│   ├── tasks/
-│   │   ├── task-1.js          # Background job to fetch and store data every 2 hours
-│   │   ├── task-2.js          # API for fetching the latest data for a requested coin
-│   │   └── task-3.js          # API for calculating standard deviation of the last 100 records
-├── .env                       # Environment variables
-├── package.json               # Project dependencies and scripts
-└── README.md                  # Project documentation
-```
+   The server will be running at `http://localhost:3000`.
 
 ## API Endpoints
 
@@ -90,7 +68,7 @@ Returns the latest data about a requested cryptocurrency (Bitcoin, Ethereum, or 
 - **Sample Request**:
 
   ```http
-  GET http://localhost:3001/stats?coin=bitcoin
+  GET http://localhost:3000/stats?coin=bitcoin
   ```
 - **Sample Response**:
 
@@ -129,14 +107,6 @@ Returns the standard deviation of the price of a requested cryptocurrency based 
 ### Task 1: Fetch and Store Cryptocurrency Data
 
 Every 2 hours, the server fetches data (current price, market cap, and 24-hour price change) for Bitcoin, Ethereum, and Matic using the CoinGecko API and stores it in the MongoDB database.
-
-### How to Start the Background Job
-
-The background job runs automatically as part of the server. To manually start the fetching process (for testing), run:
-
-```bash
-node src/services/fetchCryptoData.js
-```
 
 ## Testing
 
